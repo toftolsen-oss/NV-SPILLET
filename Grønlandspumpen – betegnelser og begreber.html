@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grønlandspumpen – betegnelser og begreber</title>
+<style>
+:root{--bg:#f8fafc;--card:#ffffff;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--accent:#4f46e5;--ok:#16a34a;--bad:#dc2626;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--muted:#94a3b8;--border:#334155;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--muted:#94a3b8;--border:#334155;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);padding:env(safe-area-inset-top,0px) 16px env(safe-area-inset-bottom,0px)}
+.wrap{max-width:660px;margin:0 auto;padding:20px 0}
+h1{font-size:1.5rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:.95rem}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tab{flex:1;padding:10px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:10px;font-weight:600;cursor:pointer}
+.tab.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.chip{padding:6px 10px;border-radius:999px;border:2px solid var(--c);background:var(--card);color:var(--text);cursor:pointer;font-size:.85rem}
+.chip.on{background:var(--c);color:#fff}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:14px}
+.card h2{margin:0 0 10px;font-size:1.2rem}
+.card h3{margin:16px 0 6px;font-size:1rem}
+.card p{line-height:1.5;margin:0 0 8px}
+.card ol{padding-left:20px;margin:6px 0 8px;line-height:1.5}
+.box{border-radius:10px;padding:12px;margin:10px 0;background:var(--bg);border-left:5px solid var(--c)}
+.box b{display:block;margin-bottom:4px}
+.hint{color:var(--muted);font-size:.9rem;margin:12px 0 0}
+.btn{padding:10px 16px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;cursor:pointer;font-size:.95rem}
+.btn.alt{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.row{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:14px}
+.term{background:var(--bg);border-radius:10px;padding:10px 12px;margin:8px 0;border-left:5px solid var(--c)}
+.term summary{cursor:pointer;font-weight:700;font-size:1rem}
+.term p{margin:8px 0 0}
+.opt{display:block;width:100%;text-align:left;padding:12px 14px;margin:8px 0;border:2px solid var(--border);border-radius:10px;background:var(--card);color:var(--text);cursor:pointer;font-size:.97rem}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:rgba(22,163,74,.18)}
+.opt.wrong{border-color:var(--bad);background:rgba(220,38,38,.18)}
+.bar{height:8px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:12px}
+.bar div{height:100%;background:var(--accent);transition:width .3s}
+.meta{color:var(--muted);font-size:.85rem;margin:0 0 6px}
+.feedback{margin:10px 0 0;font-weight:600}
+.ok{color:var(--ok)}
+.bad{color:var(--bad)}
+.score{font-size:2.5rem;font-weight:700;text-align:center;margin:12px 0}
+.center{text-align:center}
+.chain{font-weight:600;background:var(--bg);border-radius:10px;padding:10px 12px;line-height:1.6}
+details.more{background:var(--bg);border-radius:10px;padding:10px 12px;margin:8px 0}
+details.more summary{cursor:pointer;font-weight:600}
+details.more p{margin:8px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Grønlandspumpen</h1>
+  <p class="sub">Betegnelserne fra de syv begrebspar, knyttet til jeres forsøg.</p>
+  <div class="tabs">
+    <button class="tab on" id="tab-forsog" onclick="setMode('forsog')">Forsøget</button>
+    <button class="tab" id="tab-begreber" onclick="setMode('begreber')">Betegnelser</button>
+    <button class="tab" id="tab-quiz" onclick="setMode('quiz')">Quiz</button>
+  </div>
+  <div id="app"></div>
+</div>
+
+<script>
+/* Hvert begrebspar: navn, farve, forklaring, eksempel fra forsøget og betegnelser [term, definition] */
+const G = [
+  { name:"Modeller", color:"#4f46e5",
+    def:"En model er en forenklet fremstilling af virkeligheden. Modeller er nyttige, men de er ikke virkeligheden selv.",
+    eks:"Glasbeholderen med det store kar og is-beholderen er en model af Atlanterhavet. Den viser princippet bag Grønlandspumpen.",
+    terms:[
+      ["Model","En forenklet fremstilling af virkeligheden, der hjælper os med at forklare noget"],
+      ["Forenkling","At udelade detaljer, så det vigtigste bliver tydeligt"],
+      ["Forudsigelse","Det en model siger vil ske under bestemte forhold"]
+    ]},
+  { name:"Kvantitativ og kvalitativ", color:"#0891b2",
+    def:"Kvantitative data er målbare i tal. Kvalitative data er beskrivende og observeres med sanserne.",
+    eks:"Kvalitativ: det blå vand falder til bunden. Kvantitativ: temperaturen i karret målt i grader.",
+    terms:[
+      ["Kvantitativ","Data, der kan måles eller tælles i tal"],
+      ["Kvalitativ","Data, der beskrives med ord og observeres med sanserne"],
+      ["Observation","Iagttagelse af noget, uden at det nødvendigvis er målt i tal"]
+    ]},
+  { name:"Laboratorieforsøg og feltundersøgelser", color:"#16a34a",
+    def:"Laboratorieforsøg foregår i et kontrolleret miljø. Feltundersøgelser foregår i naturlige omgivelser.",
+    eks:"Grønlandspumpen-forsøget er et laboratorieforsøg i et kar. Målinger af havstrømme i Atlanterhavet er feltundersøgelser.",
+    terms:[
+      ["Laboratorieforsøg","Forsøg i et kontrolleret miljø med stor kontrol over variablene"],
+      ["Feltundersøgelse","Undersøgelse i naturlige omgivelser"],
+      ["Intern validitet","Om forsøget faktisk viser sammenhængen mellem årsag og virkning"],
+      ["Ekstern validitet","Om resultatet kan overføres til virkeligheden"]
+    ]},
+  { name:"Forsøgsdesign", color:"#d97706",
+    def:"Forsøgsdesign handler om at kontrollere variablene, så resultatet kan stole på.",
+    eks:"Forsøg 2: Uafhængig = saltindholdet i is-beholderen. Afhængig = hvor hurtigt det blå vand falder. Kontrol = vandmængde, varme, farvestof og karret.",
+    terms:[
+      ["Uafhængig variabel","Den, du ændrer bevidst (x-aksen)"],
+      ["Afhængig variabel","Den, du måler (y-aksen)"],
+      ["Kontrolvariabel","En variabel, der holdes konstant, så den ikke påvirker resultatet"],
+      ["Kontrolgruppe","En reference, der ikke får den behandling, I undersøger"],
+      ["Gentagelse","At gøre forsøget flere gange, så resultatet bliver pålideligt"]
+    ]},
+  { name:"Induktiv og deduktiv", color:"#db2777",
+    def:"Induktiv metode går fra observationer til en generel regel. Deduktiv metode går fra teori til en forudsigelse, der testes.",
+    eks:"Deduktiv: salt vand er tungere, så det må falde hurtigere. Det tester I i forsøg 2.",
+    terms:[
+      ["Induktiv metode","Fra mange observationer til en generel regel (nedefra og op)"],
+      ["Deduktiv metode","Fra teori eller regel til en forudsigelse, der testes (oppefra og ned)"],
+      ["Hypotese","En testbar forudsigelse om, hvad der sker, hvis man ændrer én ting"]
+    ]},
+  { name:"Grafisk fremstilling", color:"#7c3aed",
+    def:"Graftypen vælges efter data. En god graf har titel, akser med navn og enhed, passende skala og evt. fejlbjælker.",
+    eks:"Saltindhold på x-aksen og faldhastighed på y-aksen i en graf over forsøg 2.",
+    terms:[
+      ["Punktdiagram","Viser to målte størrelser mod hinanden"],
+      ["Linjediagram","Viser ændring over tid"],
+      ["Søjlediagram","Sammenligner kategorier"],
+      ["Fejlbjælke","Viser usikkerheden på en måling"]
+    ]},
+  { name:"Fejlkilder og usikkerheder", color:"#dc2626",
+    def:"Fejl kan være systematiske eller tilfældige. Usikkerhed udtrykker, hvor præcis en måling er.",
+    eks:"Systematisk: en termostat, der altid viser for høj temperatur. Tilfældig: hvor præcist farven dryppes.",
+    terms:[
+      ["Systematisk fejl","En fejl, der går samme vej hver gang (forskydning)"],
+      ["Tilfældig fejl","En fejl, der varierer op og ned (spredning)"],
+      ["Kalibrering","At justere et måleinstrument, så det viser rigtigt"],
+      ["Usikkerhed","Et udtryk for, hvor præcis en måling er"]
+    ]}
+];
+
+const ALL = G.flatMap((g,gi)=>g.terms.map(([t,d])=>({t,d,gi,color:g.color,name:g.name})));
+
+let mode = 'forsog', cur = 0;
+let qs = [], qi = 0, score = 0, answered = false, chosen = -1;
+
+function setMode(m){
+  mode = m;
+  ['forsog','begreber','quiz'].forEach(k=>document.getElementById('tab-'+k).classList.toggle('on', k===m));
+  if(m==='forsog') renderForsog();
+  else if(m==='begreber') renderBegreber();
+  else startQuiz();
+}
+
+/* ---------- FORSØGET ---------- */
+function renderForsog(){
+  document.getElementById('app').innerHTML = `
+    <div class="card">
+      <h2>Formål</h2>
+      <p>Formålet er at forstå, hvordan vand påvirker jorden. Over 70 % af jordens overflade er dækket af flydende vand, og havstrømmene transporterer varme og koldt vand rundt på kloden.</p>
+      <h3>Grønlandspumpen</h3>
+      <p>Golfstrømmen fører varmt vand nordpå. Ved Grønland afkøles vandet, og når isen smelter, udskilles salt til havvandet. Saltvandet bliver tungere, synker mod havbunden og løber sydpå, hvor det langsomt varmes op og stiger igen.</p>
+    </div>
+    <div class="card">
+      <h2>Forsøg 1: Vandtemperaturens indvirkning</h2>
+      <ol>
+        <li>Fyld det store kar med vand, så der er maks. 1 cm til kanten.</li>
+        <li>Hæld is i is-beholderen, tænd termostatvarmeren og vent ca. 1 minut.</li>
+        <li>Dryp methylenblåt eller frugtfarve i den bageste del af is-beholderen.</li>
+      </ol>
+      <div class="box" style="--c:#0891b2"><b>Observation</b>Det kolde vand falder til bunden, bevæger sig hen ad bunden, cirkulerer og stiger igen, når det varmes op.</div>
+    </div>
+    <div class="card">
+      <h2>Forsøg 2: Vandets saltindhold</h2>
+      <ol>
+        <li>Samme opsætning som forsøg 1.</li>
+        <li>Hæld i stedet mættet saltvand i is-beholderen, og dryp farve i.</li>
+      </ol>
+      <div class="box" style="--c:#16a34a"><b>Observation</b>Vandet faldt hurtigere til bunds, fordi densiteten steg. Men det var for tungt til at komme op til overfladen igen.</div>
+    </div>
+    <div class="card">
+      <h2>Kæden i Golfstrømmen</h2>
+      <div class="chain">Højere temperatur → mere is smelter → mere ferskvand i havet → Golfstrømmen kan svækkes → Danmarks klima bliver koldere</div>
+    </div>`;
+}
+
+/* ---------- BETEGNELSER ---------- */
+let gi = 0;
+function pickG(i){ gi = i; renderBegreber(); }
+
+function renderBegreber(){
+  const g = G[gi];
+  const chips = G.map((x,i)=>`<button class="chip ${i===gi?'on':''}" style="--c:${x.color}" onclick="pickG(${i})">${i+1}. ${x.name}</button>`).join('');
+  const terms = g.terms.map(([t,d])=>`
+    <details class="term" style="--c:${g.color}">
+      <summary>${t}</summary>
+      <p>${d}</p>
+    </details>`).join('');
+  document.getElementById('app').innerHTML = `
+    <div class="chips">${chips}</div>
+    <div class="card" style="border-top:6px solid ${g.color}">
+      <p class="meta">Begrebspar ${gi+1} af ${G.length}</p>
+      <h2>${g.name}</h2>
+      <p>${g.def}</p>
+      <p><b>I forsøget:</b> ${g.eks}</p>
+      <h3>Betegnelser</h3>
+      <p class="hint">Prøv at sige betydningen selv, før du åbner betegnelsen.</p>
+      ${terms}
+    </div>
+    <div class="row">
+      <button class="btn alt" onclick="pickG((gi+G.length-1)%G.length)">← Forrige</button>
+      <button class="btn" onclick="pickG((gi+1)%G.length)">Næste →</button>
+    </div>`;
+}
+
+/* ---------- QUIZ (betegnelser) ---------- */
+const QUESTIONS = [
+ {g:0,q:'Et biologilærer viser en plastikmodel af et hjerte. Hvad skal man huske om modellen?',a:['Den er præcis i alle detaljer','Den er en forenklet udgave af et rigtigt hjerte','Den kan erstatte et rigtigt hjerte i et forsøg'],c:1,exp:'En model er en forenklet fremstilling. Den hjælper os med at forstå noget, men den er ikke selve objektet.'},
+ {g:0,q:'Hvorfor bruger forskere klimamodeller?',a:['Fordi modeller kan forudsige, hvad der kan ske under forskellige forhold','Fordi modeller er billigere end målinger','Fordi modeller altid er korrekte'],c:0,exp:'Vi kan ikke gentage Jordens udvikling i et laboratorium, så modeller bruges til at teste og forudsige.'},
+ {g:0,q:'Hvilken påstand om modeller er forkert?',a:['De har begrænsninger','De er ikke virkeligheden selv','De er altid sande, fordi de er lavet af forskere'],c:2,exp:'Modeller er forenklinger og kan være forkerte eller ufuldstændige. At en forsker har lavet dem, gør dem ikke sande.'},
+ {g:1,q:'En elev skriver: »Vandet var lunkent.« Hvilken type data er det?',a:['Kvantitativ','Kvalitativ'],c:1,exp:'Lunken er en beskrivelse med ord og ikke et tal.'},
+ {g:1,q:'Hvilken måling er kvantitativ?',a:['Blomsten har en lyserød farve','Blomsten er 14,2 cm høj','Blomsten lugter sødt'],c:1,exp:'Højde i centimeter er et tal, som kan måles.'},
+ {g:1,q:'En forsker tæller, hvor mange fugle der lander i et træ på en time. Hvilken type data er det?',a:['Kvalitativ','Kvantitativ'],c:1,exp:'Antal er et tal, så det er kvantitativt.'},
+ {g:2,q:'En forsker tester en medicin på mus i bure med præcis samme temperatur og fodring. Hvilken type forsøg er det?',a:['Feltundersøgelse','Laboratorieforsøg'],c:1,exp:'Det foregår i et kontrolleret miljø med stor kontrol over variablene.'},
+ {g:2,q:'Hvilken fordel har en feltundersøgelse?',a:['Den er let at gentage under præcis de samme betingelser','Resultaterne er tæt på virkeligheden','Den har ingen fejlkilder'],c:1,exp:'Feltundersøgelser foregår i naturlige omgivelser, så de er virkelighedsnære, men de er sværere at kontrollere.'},
+ {g:2,q:'Hvilken validitet beskriver, om et forsøg faktisk viser årsag og virkning?',a:['Ekstern validitet','Intern validitet'],c:1,exp:'Intern validitet handler om, hvor sikkert forsøget viser sammenhængen mellem det, du ændrer, og det, du måler.'},
+ {g:3,q:'En forsker vil undersøge, om mere gødning giver højere planter. Hvad er den uafhængige variabel?',a:['Plantens højde','Mængden af gødning','Hvor ofte planterne vandes'],c:1,exp:'Det er det, forskeren ændrer bevidst.'},
+ {g:3,q:'I samme forsøg: Hvad er den afhængige variabel?',a:['Mængden af gødning','Plantens højde','Lysstyrken i rummet'],c:1,exp:'Det er det, man måler som resultat.'},
+ {g:3,q:'Hvorfor skal vandmængden være den samme for alle planter?',a:['Så den ikke påvirker resultatet','Så planterne vokser hurtigere','Fordi det gør forsøget nemmere at skrive om'],c:0,exp:'Vandmængden er en kontrolvariabel. Den skal holdes konstant, så den ikke forklarer forskellen i resultatet.'},
+ {g:3,q:'Hvad er en kontrolgruppe?',a:['En gruppe, der får den største behandling','En reference, der ikke får behandlingen','En gruppe, der måles flest gange'],c:1,exp:'Kontrolgruppen viser, hvad der sker uden den behandling, man undersøger.'},
+ {g:4,q:'En læge har set, at mange patienter bliver bedre af en bestemt medicin, og konkluderer, at medicinen virker. Hvilken metode er det?',a:['Deduktiv','Induktiv'],c:1,exp:'Mange observationer fører til en generel regel. Det er induktion.'},
+ {g:4,q:'En elev har læst teorien om, at mørke overflader opvarmes mere i solen. Hun forudsiger, at en sort plade bliver varmere end en hvid, og tester det. Hvilken metode er det?',a:['Deduktiv','Induktiv'],c:0,exp:'Her går man fra teori til en forudsigelse, der testes. Det er deduktion.'},
+ {g:4,q:'Hvad er en hypotese?',a:['En konklusion, der er bevist','En testbar forudsigelse','En måling, man har lavet'],c:1,exp:'En hypotese er en forudsigelse, der kan testes og eventuelt afvises.'},
+ {g:5,q:'Du vil vise, hvordan temperaturen ændrer sig gennem en dag. Hvilken graf passer bedst?',a:['Søjlediagram','Linjediagram','Kagediagram'],c:1,exp:'Linjediagrammet viser ændring over tid.'},
+ {g:5,q:'Du vil sammenligne antal elever i fire klasser. Hvilken graf passer bedst?',a:['Søjlediagram','Punktdiagram'],c:0,exp:'Søjlediagrammet sammenligner kategorier.'},
+ {g:5,q:'Du undersøger, hvordan motion påvirker pulsen. Hvad skal stå på x-aksen?',a:['Pulsen','Motionen'],c:1,exp:'x-aksen er det, du ændrer. Pulsen er det, du måler, og den står på y-aksen.'},
+ {g:5,q:'Hvad viser en fejlbjælke i en graf?',a:['Hvor stor usikkerheden på en måling er','Hvor mange målinger der er lavet','Hvilken farve grafen har'],c:0,exp:'Fejlbjælken viser usikkerheden. Den viser ikke antallet af målinger.'},
+ {g:6,q:'En vægt viser altid 50 g for lidt. Hvilken type fejl er det?',a:['Systematisk fejl','Tilfældig fejl'],c:0,exp:'Fejlen går samme vej hver gang, så det er en forskydning.'},
+ {g:6,q:'Ved gentagne målinger af en fugls vægt varierer resultaterne lidt op og ned. Hvilken type fejl er det?',a:['Systematisk fejl','Tilfældig fejl'],c:1,exp:'Resultaterne spredes op og ned omkring en værdi. Det er en tilfældig fejl.'},
+ {g:6,q:'Hvordan reducerer man en systematisk fejl?',a:['Ved at kalibrere udstyret','Ved at tage gennemsnit af mange målinger'],c:0,exp:'Kalibrering hjælper mod systematiske fejl. Gennemsnit hjælper mod tilfældige fejl.'},
+ {g:6,q:'Hvordan reducerer man en tilfældig fejl?',a:['Ved at kalibrere udstyret','Ved at gentage målingerne og tage gennemsnit'],c:1,exp:'Flere målinger og gennemsnit udjævner de tilfældige udsving.'},
+ {g:0,q:'Hvilket af disse er en model?',a:['Et kort over Danmark','Selve Danmark','Den jord, du står på lige nu'],c:0,exp:'Et kort er en forenklet fremstilling af et område. Det er ikke området selv.'},
+ {g:0,q:'Hvorfor kan en model være nyttig, selv om den er forkert i nogle detaljer?',a:['Fordi den hjælper os med at forstå og forudsige hovedtrækkene','Fordi den altid er korrekt i alle detaljer','Fordi modeller ikke må ændres'],c:0,exp:'En model behøver ikke være perfekt. Den skal være god nok til det, den skal bruges til.'},
+ {g:0,q:'Hvad betyder det, at en model er forenklet?',a:['Den er nemmere at lave end virkeligheden','Den udelader detaljer, så det vigtigste bliver tydeligt','Den er lavet af enklere materialer'],c:1,exp:'Forenkling betyder at udelade det, der ikke er vigtigt for det, man vil forklare.'},
+ {g:1,q:'Hvilken af disse er en kvalitativ observation?',a:['Der er 23 elever i klassen','Vandet bliver gulligt','Temperaturen er 18 grader'],c:1,exp:'Gulligt beskriver en egenskab med ord. De to andre er tal.'},
+ {g:1,q:'Du måler, hvor mange sekunder en kugle bruger på at falde en meter. Hvilken type data er det?',a:['Kvalitativ','Kvantitativ'],c:1,exp:'Sekunder er målbare tal.'},
+ {g:1,q:'Hvorfor er kvalitative data svære at analysere direkte med statistik?',a:['Fordi de er beskrevet med ord og ikke tal','Fordi de altid er forkerte','Fordi de kun kan måles i gram'],c:0,exp:'Statistik regner på tal. Kvalitative data skal ofte kategoriseres eller kodes først.'},
+ {g:2,q:'Hvilket udsagn om feltundersøgelser er korrekt?',a:['De foregår altid i et laboratorium','De foregår i naturlige omgivelser','De kan ikke bruges til at lave målinger'],c:1,exp:'Feltundersøgelser foregår der, hvor fænomenet findes naturligt.'},
+ {g:2,q:'En skole tester en ny gødning i et drivhus med kontrolleret temperatur og vanding. Hvad har de lavet?',a:['En feltundersøgelse','Et laboratorieforsøg'],c:1,exp:'Et drivhus med kontrolleret temperatur og vanding er et kontrolleret miljø.'},
+ {g:2,q:'Hvad er ekstern validitet?',a:['At forsøget viser årsag og virkning','At resultatet kan overføres til andre situationer','At alle variable er målt'],c:1,exp:'Ekstern validitet handler om, hvor godt resultatet gælder ude i virkeligheden.'},
+ {g:2,q:'Hvad er den største svaghed ved et laboratorieforsøg?',a:['Det er svært at kontrollere variablene','Resultatet kan være svært at overføre til virkeligheden','Det kan ikke gentages'],c:1,exp:'Når alt er kontrolleret, bliver forsøget mindre lig den virkelige verden.'},
+ {g:3,q:'Elever i to grupper måler reaktionstid. Den ene gruppe drikker sodavand, den anden drikker vand. Hvilken gruppe er kontrolgruppen?',a:['Gruppen, der drikker sodavand','Gruppen, der drikker vand'],c:1,exp:'Kontrolgruppen er referencen uden den behandling, man undersøger. Her er det sodavanden, der undersøges.'},
+ {g:3,q:'Hvorfor gentager man et forsøg flere gange?',a:['Så resultatet bliver mere pålideligt','Så forsøget tager længere tid','Så man kan ændre de uafhængige variabler undervejs'],c:0,exp:'Gentagelser gør resultatet mere pålideligt og gør det lettere at se, om forskelle er tilfældige.'},
+ {g:3,q:'Du tester, om lysets farve påvirker, hvor hurtigt frø spirer. Hvad er den afhængige variabel?',a:['Lysets farve','Hvor hurtigt frøene spirer','Hvilken jord frøene står i'],c:1,exp:'Det er det, man måler som resultat.'},
+ {g:3,q:'Hvis du ændrer både lysets farve og vandmængden i samme forsøg, hvad er problemet?',a:['Du kan ikke afgøre, hvilken af de to ændringer der påvirker resultatet','Forsøget bliver for hurtigt','Der bliver for få målinger'],c:0,exp:'Ændr kun én ting ad gangen, ellers kan man ikke se årsagen.'},
+ {g:4,q:'Du har set, at alle solsikker i din have vender mod solen om morgenen. Du konkluderer, at solsikker altid gør det. Hvilken metode er det?',a:['Deduktiv','Induktiv'],c:1,exp:'Mange observationer fører til en generel regel.'},
+ {g:4,q:'Du ved, at alle levende planter har brug for vand, og forudsiger, at en plante uden vand vil visne. Hvilken metode er det?',a:['Deduktiv','Induktiv'],c:0,exp:'Her går man fra en generel regel til en forudsigelse, der kan testes.'},
+ {g:4,q:'Hvilken af disse beskriver induktion?',a:['Fra teorien udleder man, at tunge genstande falder lige hurtigt, og tester det','Efter mange målinger af faldende genstande konkluderer man, at de falder ens','Man laver et forsøg uden at have nogen forventning'],c:1,exp:'Induktion går fra mange observationer til en regel. De to andre svar handler om teori og forudsigelser eller om forsøg uden forventning.'},
+ {g:5,q:'Du har spurgt 5 personer, hvor mange kopper kaffe de drikker om dagen. Hvilken graf passer bedst?',a:['Søjlediagram','Linjediagram'],c:0,exp:'Søjlediagrammet sammenligner kategorier, her personerne.'},
+ {g:5,q:'Hvad skal altid med i en god graf?',a:['Titel, akser med navn og enhed','Kun farver','Så mange data som muligt'],c:0,exp:'Titel, akser med navn og enhed er grundlæggende i en god graf.'},
+ {g:5,q:'Du har målt, hvor meget vand der fordamper ved forskellige temperaturer. Hvad skal stå på y-aksen?',a:['Temperaturen','Mængden af vand, der fordamper'],c:1,exp:'Det, man måler, står på y-aksen. Temperaturen er det, man ændrer, og den står på x-aksen.'},
+ {g:5,q:'Hvilken graftype viser bedst, hvordan to målte størrelser hænger sammen?',a:['Punktdiagram','Søjlediagram','Kagediagram'],c:0,exp:'Punktdiagrammet viser sammenhængen mellem to målte størrelser.'},
+ {g:6,q:'Et termometer viser altid 1 grad for højt. Hvilken type fejl er det?',a:['Systematisk fejl','Tilfældig fejl'],c:0,exp:'Den samme fejl gentager sig hver gang, så det er en systematisk fejl.'},
+ {g:6,q:'Hvad udtrykker usikkerheden på en måling?',a:['Hvor præcis målingen er','Hvor mange gange man har målt','Hvor hurtigt man målte'],c:0,exp:'Usikkerheden fortæller, hvor meget man kan stole på værdien.'},
+ {g:6,q:'Du måler en plantes højde flere gange og får 12,1 cm, 12,4 cm og 11,9 cm. Hvilken type fejl er det sandsynligvis?',a:['Systematisk fejl','Tilfældig fejl'],c:1,exp:'Værdierne varierer op og ned omkring en middelværdi, så det er en tilfældig fejl.'},
+ {g:6,q:'Hvorfor kan mange målinger reducere en tilfældig fejl?',a:['Fordi udsvingene op og ned udligner hinanden i gennemsnittet','Fordi den systematiske fejl forsvinder','Fordi målingerne bliver ens'],c:0,exp:'Tilfældige udsving ophæver hinanden, når man tager gennemsnit.'},
+ {g:6,q:'Hvad betyder kalibrering?',a:['At justere et måleinstrument, så det viser det rigtige','At gentage en måling flere gange','At tegne en graf af målingerne'],c:0,exp:'Ved kalibrering sammenligner man instrumentet med en kendt værdi og retter det til.'}
+];
+
+function shuffle(a){
+  for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+function startQuiz(){
+  const pick = [];
+  G.forEach((_,g)=>{ pick.push(...shuffle(QUESTIONS.filter(q=>q.g===g)).slice(0,3)); });
+  qs = shuffle(pick).slice(0,20).map(q=>{
+    const order = shuffle(q.a.map((_,i)=>i));
+    return { g:q.g, q:q.q, exp:q.exp, opts:order.map(i=>q.a[i]), c:order.indexOf(q.c) };
+  });
+  qi = 0; score = 0; answered = false; chosen = -1;
+  renderQuiz();
+}
+function answer(i){
+  if(answered) return;
+  answered = true; chosen = i;
+  if(i === qs[qi].c) score++;
+  renderQuiz();
+}
+function next(){
+  qi++; answered = false; chosen = -1;
+  renderQuiz();
+}
+function renderQuiz(){
+  const app = document.getElementById('app');
+  if(qi >= qs.length){
+    const msg = score === qs.length
+      ? 'Perfekt. Betegnelserne sidder!'
+      : 'Gå til fanen Betegnelser og kig på det, du misser.';
+    app.innerHTML = `
+      <div class="card">
+        <h2 class="center">Færdig!</h2>
+        <div class="score">${score} / ${qs.length}</div>
+        <p class="center" style="color:var(--muted)">${msg}</p>
+        <div class="center" style="margin-top:14px"><button class="btn" onclick="startQuiz()">Start forfra</button></div>
+      </div>`;
+    return;
+  }
+  const q = qs[qi], x = G[q.g];
+  const opts = q.opts.map((a,i)=>{
+    let cls = '';
+    if(answered){
+      if(i === q.c) cls = 'right';
+      else if(i === chosen) cls = 'wrong';
+    }
+    return `<button class="opt ${cls}" onclick="answer(${i})" ${answered?'disabled':''}>${a}</button>`;
+  }).join('');
+  const fb = answered
+    ? (chosen === q.c
+        ? `<p class="feedback ok">Rigtigt!</p>`
+        : `<p class="feedback bad">Forkert. Svaret er: ${q.opts[q.c]}</p>`)
+      + `<p class="hint">${q.exp}</p>`
+    : '';
+  const btn = answered
+    ? `<div class="row" style="justify-content:flex-end"><button class="btn" onclick="next()">${qi+1<qs.length?'Næste':'Se resultat'}</button></div>`
+    : '';
+  app.innerHTML = `
+    <div class="bar"><div style="width:${qi/qs.length*100}%"></div></div>
+    <p class="meta">Spørgsmål ${qi+1} af ${qs.length} · <span style="color:${x.color};font-weight:600">${x.name}</span> · Point: ${score}</p>
+    <div class="card">
+      <h2>${q.q}</h2>
+      ${opts}
+      ${fb}
+    </div>
+    ${btn}`;
+}
+
+setMode('forsog');
+</script>
+</body>
+</html>
